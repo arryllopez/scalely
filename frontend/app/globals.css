@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Locomotive Scroll */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+[data-scroll-container] {
+  min-height: 100vh;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
