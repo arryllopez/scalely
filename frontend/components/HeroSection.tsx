@@ -1,8 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic"
-import foxAnimation from "@/public/animationsLottie/Fox Runing.json"
-import cityAnimation from "@/public/animationsLottie/Driving Car.json"
+import foxAnimation from "@/public/animationsLottie/foxRunning.json"
+import cityAnimation from "@/public/animationsLottie/cityBackground.json"
 
 const LottieAnimation = dynamic(
   () => import("@/components/LottieAnimation"),
@@ -25,7 +25,7 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="flex flex-col gap-4 items-center">
-        <h1 className="text-7xl text-black font-bold">
+        <h1 className="text-7xl text-black font-medium">
           Welcome to Vulpes
         </h1>
         <h2 className="text-2xl text-black font-medium" style={{ fontFamily: 'var(--font-inter)' }}>

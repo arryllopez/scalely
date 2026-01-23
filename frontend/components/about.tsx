@@ -3,10 +3,10 @@ export default function AboutSection() {
     <section className="flex min-h-screen items-center">
       <div className="flex flex-col gap-6 pl-16 max-w-3xl">
         <h1 className="text-7xl text-black whitespace-nowrap font-bold">
-          Why I built Vulpes
+          What is Vulpes
         </h1>
         <p className="text-4xl text-black leading-relaxed whitespace-nowrap">
-          Restaurants don&apos;t fail because the food is bad. 
+           
           <br/> 
           They fail because the demand is uneven.
         </p>
