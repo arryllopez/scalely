@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Clock, DollarSign, Users, Zap } from "lucide-react";
 import SmoothScroll from "@/components/SmoothScroll";
+import LottieAnimation from "@/components/LottieAnimation";
+import ParrotAnimation from "@/public/animationsLottie/Parrot.json";
 
 export default function ForRestaurants() {
   const [email, setEmail] = useState("");
@@ -53,6 +55,9 @@ export default function ForRestaurants() {
             Back
           </Link>
         </header>
+
+       
+      
 
         {/* Hero */}
         <section className="px-6 py-12 text-center">
@@ -113,6 +118,32 @@ export default function ForRestaurants() {
                   <p className="text-gray-700 font-medium">{item.text}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="min-h-screen flex items-center justify-center px-6 bg-white">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
+            <div className="shrink-0 flex justify-start">
+              <LottieAnimation
+                animationData={ParrotAnimation}
+                className="w-48 h-48 md:w-64 md:h-64"
+              />
+            </div>
+
+            <div className="flex-1 text-center px-4">
+              <h2 className="text-3xl md:text-5xl font-bold text-[#03045E] mb-4 font-(family-name:--font-caudex)">
+                Meet Chirp
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 font-(family-name:--font-inter) max-w-md mx-auto">
+                Your friendly guide to the best local deals. Chirp helps you discover amazing food at amazing prices, right in your neighborhood.
+              </p>
+            </div>
+
+            <div className="shrink-0 flex justify-end">
+              <div className="w-48 h-80 md:w-56 md:h-96 bg-gray-100 rounded-3xl border-4 border-gray-300 flex items-center justify-center">
+                <p className="text-gray-400 text-sm">Phone Mockup</p>
+              </div>
             </div>
           </div>
         </section>

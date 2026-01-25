@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Bell, MapPin, Percent, Users } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import SmoothScroll from "@/components/SmoothScroll";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import LottieAnimation from "@/components/LottieAnimation";
+import ParrotAnimation from "@/public/animationsLottie/Parrot.json";
 
 export default function ForDiners() {
   const [email, setEmail] = useState("");
@@ -16,26 +19,31 @@ export default function ForDiners() {
     setSubmitted(true);
   };
 
-  const benefits = [
+  const features = [
     {
-      icon: <Bell className="w-8 h-8" />,
-      title: "Get notified, not spammed",
-      description: "Only hear about deals from restaurants actually near you, right when they drop.",
-    },
-    {
-      icon: <Percent className="w-8 h-8" />,
-      title: "Real savings, no catch",
+      name: "Real savings, no catch",
       description: "Exclusive discounts during off-peak hours. Same great food, smaller bill.",
+      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
     },
     {
-      icon: <MapPin className="w-8 h-8" />,
-      title: "Discover your neighborhood",
+      name: "Get notified, not spammed",
+      description: "Only hear about deals from restaurants actually near you, right when they drop.",
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+    },
+    {
+      name: "Discover your neighborhood",
       description: "Find hidden gems and local favorites you never knew existed.",
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "Support local spots",
+      name: "Support local spots",
       description: "Help neighborhood restaurants thrive while treating yourself.",
+      className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+    },
+    {
+      name: "Explore nearby",
+      description: "Get notified when someone shares a file or mentions you in a comment.",
+      className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
     },
   ];
 
@@ -53,14 +61,16 @@ export default function ForDiners() {
           </Link>
         </header>
 
+       
+        
+
         {/* Hero */}
         <section className="px-6 py-12 text-center">
           <div className="max-w-2xl mx-auto">
-            <span className="text-4xl mb-4 block">🦊</span>
-            <h1 className="text-4xl md:text-6xl font-bold text-black mb-4">
+            <h1 className="text-3xl md:text-6xl font-bold text-black mb-4 font-(family-name:--font-caudex)">
               Great food.<br />Better prices.<br />Right nearby.
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto">
+            <p className="text-lg md:text-xl text-black-600 max-w-lg mx-auto">
               Vulpes sends you deals from local restaurants during their quiet hours.
               You save money, they fill seats, your neighborhood wins.
             </p>
@@ -68,27 +78,16 @@ export default function ForDiners() {
         </section>
 
         {/* Benefits */}
-        <section className="px-6 py-12 bg-gray-50">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              Why join the pack?
+        <section className="px-6 py-12">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 font-(family-name:--font-caudex)">
+              Trivvi is Designed for Diners
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="shrink-0 w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-                    {benefit.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">{benefit.title}</h3>
-                    <p className="text-gray-600">{benefit.description}</p>
-                  </div>
-                </div>
+            <BentoGrid className="lg:grid-rows-3">
+              {features.map((feature) => (
+                <BentoCard key={feature.name} {...feature} />
               ))}
-            </div>
+            </BentoGrid>
           </div>
         </section>
 
@@ -112,6 +111,37 @@ export default function ForDiners() {
                   <p className="text-gray-700 font-medium">{item.text}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="min-h-screen flex items-center justify-center px-6 py-24 bg-white">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div className="shrink-0 flex justify-start">
+              <LottieAnimation
+                animationData={ParrotAnimation}
+                className="w-64 h-64 md:w-80 md:h-80"
+              />
+            </div>
+
+            <div className="flex-1 text-center px-4">
+              <h2 className="text-4xl md:text-6xl font-bold text-[#03045E] mb-6 font-(family-name:--font-caudex)">
+                Meet Chirp
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-600 font-(family-name:--font-inter) max-w-lg mx-auto">
+                Your friendly guide to the best local deals. Chirp helps you discover amazing food at amazing prices, right in your neighborhood.
+              </p>
+            </div>
+
+            <div className="shrink-0 flex justify-end">
+              <video
+                src="/phoneMockup/iNotifications-Stack.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-64 h-[28rem] md:w-80 md:h-[36rem] rounded-3xl object-cover"
+              />
             </div>
           </div>
         </section>

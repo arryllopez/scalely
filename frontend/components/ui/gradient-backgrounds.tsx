@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 
 interface GradientBackgroundProps {
   className?: string;
