@@ -14,7 +14,9 @@ import FoodCarousel from "@/public/animationsLottie/Food.json";
 import Navigation from "@/public/animationsLottie/map navigation.json";
 import { FadeText } from "@/components/ui/fade-text";
 import { TextEffect } from "@/components/ui/text-effect";
-import IphoneFrame from "@/components/ui/IphoneFrame";
+import IphoneStep1 from "@/components/ui/IphoneStep1";
+import IphoneStep2 from "@/components/ui/IphoneStep2";
+import IphoneStep3 from "@/components/ui/IphoneStep3";
 
 export default function ForDiners() {
   const [email, setEmail] = useState("");
@@ -177,31 +179,64 @@ Diners find great deals nearby.`}
 
         {/* How it works */}
         <section className="px-6 py-16">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-4xl font-bold mb-12 font-(family-name:--font-caudex)">
-              Setup in 3 easy steps
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-4xl font-bold mb-16 text-center font-(family-name:--font-caudex)">
+              Trivvi in 3 easy steps
             </h2>
-            <div className="flex flex-col md:flex-row gap-8 md:gap-4">
-              {[
-                { step: "1", emoji: "📱", text: "Sign up & enable notifications", subtext: "" },
-                { step: "2", emoji: "🔔", text: "Get alerted when nearby deals drop ", subtext: "Only when it's worth your attention" },
-                { step: "3", emoji: "🍜", text: "Show up, eat up, save up" },
-              ].map((item) => (
-                <div key={item.step} className="flex-1 flex flex-col items-center">
-                  <span className="text-4xl mb-3">
-                    {item.emoji}
-                  </span>
-                  <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold mb-3">
-                    {item.step}
+            <div className="flex flex-col gap-24">
+              {/* Step 1 */}
+              <div className="flex flex-col md:flex-row items-center gap-12">
+                <div className="shrink-0">
+                  <IphoneStep1 />
+                </div>
+                <div className="flex-1 flex flex-col justify-center items-center text-center">
+                  
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                    1
                   </div>
-                  <p className="text-gray-700 ">
-                    {item.text}
+                  <p className="text-2xl font-semibold text-black mb-2 font-(family-name:--font-caudex)">
+                    Create your Trivvi account
                   </p>
-                  <p className=" text-gray-500 font-(family-name:--font-caudex)">
-                    {item.subtext}
+                  <p className="text-lg text-gray-500 font-(family-name:--font-caudex)">
+                    Create your account in seconds. It&apos;s fast, secure, and sets you up to start discovering your favorite food deals right away.
                   </p>
                 </div>
-              ))}
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div className="shrink-0">
+                  <IphoneStep2 />
+                </div>
+                <div className="flex-1 flex flex-col justify-center items-center text-center">
+                  
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                    2
+                  </div>
+                  <p className="text-2xl font-semibold text-black 700 mb-2 font-(family-name:--font-caudex)">
+                    Pick your favourites
+                  </p>
+                  <p className="text-lg text-gray-500 font-(family-name:--font-caudex)">
+                    Choose the foods you love for personalized alerts. <br/>Trivvi won&apos;t notify you on foods you don&apos;t enjoy.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col md:flex-row items-center gap-12">
+                <div className="shrink-0">
+                  <IphoneStep3 />
+                </div>
+                <div className="flex-1 flex flex-col justify-center items-center text-center">
+                  
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                    3
+                  </div>
+                  <p className="text-2xl font-semibold text-gray-700 mb-2 font-(family-name:--font-caudex)">
+                    Stay in the loop
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -224,8 +259,8 @@ Diners find great deals nearby.`}
               </p>
             </div>
 
-            <div className="min-h-screen flex items-center justify-center p-8">
-              <IphoneFrame />
+            <div className="shrink-0 flex items-center justify-center">
+              <IphoneStep3 />
             </div>
           </div>
         </section>
@@ -237,7 +272,7 @@ Diners find great deals nearby.`}
               Be first in line
             </h2>
             <p className="text-gray-600 mb-8">
-              We&apos;re launching soon. Join the waitlist and be the first to know when Vulpes arrives in your area.
+              We&apos;re launching soon. Join the waitlist and be the first to know when Trivvi arrives in your area.
             </p>
 
             {submitted ? (
