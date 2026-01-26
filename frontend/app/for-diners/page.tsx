@@ -7,9 +7,13 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import LottieAnimation from "@/components/LottieAnimation";
 import ParrotAnimation from "@/public/animationsLottie/Parrot.json";
+import NotificationsAnimation from "@/public/animationsLottie/notifications.json";
+import PizzaAnimation from "@/public/animationsLottie/pizza ingrediants.json";
+import WalletAnimation from "@/public/animationsLottie/Wallet Animation.json";
+import NavigationAnimation from "@/public/animationsLottie/Nnavigation (1).json"
 import { FadeText } from "@/components/ui/fade-text";
 import { TextEffect } from "@/components/ui/text-effect";
-import IphoneFrame  from "@/components/ui/IphoneFrame";
+import IphoneFrame from "@/components/ui/IphoneFrame";
 
 export default function ForDiners() {
   const [email, setEmail] = useState("");
@@ -25,28 +29,41 @@ export default function ForDiners() {
   const features = [
     {
       name: "Real savings, no catch",
-      description: "Exclusive discounts during off-peak hours. Same great food, smaller bill.",
-      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+      description: "Exclusive discounts. Same great food, smaller bill.",
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+      lottieAnimation: WalletAnimation,
     },
     {
       name: "Get notified, not spammed",
       description: "We only notify you when something good is happening nearby — no noise, no spam.",
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-      video: "/phoneMockup/Notification-[remix].mp4",
+      lottieAnimation: NotificationsAnimation,
+      animationClassName: "pt-8",
     },
     {
-      name: "Discover your neighborhood",
-      description: "Find hidden gems and local favorites you never knew existed.",
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+      name: "On-demand navigation",
+      description: "Follow the in-app map for directions and get to the deal with ease.",
+      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+      background: (
+        <>
+          <div
+            className="absolute inset-0 bg-center"
+            style={{ backgroundImage: "url('/imageAssets/mapbox.png')", backgroundSize: "190%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/90 backdrop-blur-[0px]" />
+          <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_100%)] backdrop-blur-sm" />
+        </>
+      ),
     },
     {
-      name: "Support local spots",
-      description: "Help neighborhood restaurants thrive while treating yourself.",
+      name: "Support great food",
+      description: "Enjoy deals that help restaurants thrive — and treat yourself.",
       className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+      lottieAnimation: PizzaAnimation,
     },
     {
-      name: "Explore nearby",
-      description: "See deals within walking distance, right when they become available — no searching required.",
+      name: "Your deals, your way",
+      description: "See the deals you want, right when they're available. Skip the hassle of searching.",
       className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
     },
   ];
@@ -64,9 +81,6 @@ export default function ForDiners() {
             Back
           </Link>
         </header>
-
-
-
 
         {/* Hero */}
         <section className="px-6 py-12 text-center">
@@ -111,7 +125,7 @@ export default function ForDiners() {
                 as="p"
                 preset="blur"
                 delay={1.6}
-                className="text-xl md:text-2xl text-black text-center"
+                className="text-xl md:text-2xl text-black text-center mx-auto"
               >
                 {`Trivvi uses real-time alerts to help restaurants fill empty tables.
 Diners find great deals nearby.`}
@@ -131,12 +145,12 @@ Diners find great deals nearby.`}
                 as="p"
                 preset="blur"
                 delay={2}
-                className="text-2xl  md:text-3xl text-black font-(family-name:--font-caudex) "
+                className="text-2xl md:text-3xl text-black font-(family-name:--font-caudex)"
               >
                 {`Trivvi is Designed for Diners`}
               </TextEffect>
             </section>
-            <BentoGrid className="lg:grid-rows-3">
+            <BentoGrid className="lg:grid-rows-3" delay={2.5}>
 
               {features.map((feature) => (
                 <BentoCard key={feature.name} {...feature} />

@@ -1,23 +1,30 @@
 import { ReactNode } from "react";
+import { motion } from "framer-motion";
+import LottieAnimation from "@/components/LottieAnimation";
 
 import { cn } from "@/lib/utils";
 
 const BentoGrid = ({
   children,
   className,
+  delay = 0,
 }: {
   children: ReactNode;
   className?: string;
+  delay?: number;
 }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay }}
       className={cn(
         "grid w-full auto-rows-[rem] grid-cols-3 gap-4",
         className,
       )}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
@@ -27,12 +34,17 @@ const BentoCard = ({
   background,
   description,
   video,
+  lottieAnimation,
+  animationClassName,
 }: {
   name: string;
   className?: string;
   background?: ReactNode;
   description: string;
   video?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  lottieAnimation?: any;
+  animationClassName?: string;
 }) => (
   <div
     key={name}
@@ -43,6 +55,7 @@ const BentoCard = ({
       className,
     )}
   >
+    {background}
     {video && (
       <div className="absolute top-0 left-0 right-0 h-1/2 flex items-center justify-center overflow-hidden">
         <video
@@ -52,6 +65,17 @@ const BentoCard = ({
           muted
           playsInline
           className="h-full object-contain"
+        />
+      </div>
+    )}
+    {lottieAnimation && (
+      <div className={cn(
+        "absolute top-0 left-0 right-0 h-1/2 flex items-center justify-center overflow-hidden",
+        animationClassName
+      )}>
+        <LottieAnimation
+          animationData={lottieAnimation}
+          className="h-full w-auto"
         />
       </div>
     )}
