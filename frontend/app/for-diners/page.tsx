@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -322,6 +323,97 @@ Diners find great deals nearby.`}
             >
               <IphoneStep3 />
             </motion.div>
+          </div>
+        </section>
+
+        {/* Interactive Map Section */}
+        <section className="px-6 py-24 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            {/* Title - Centered Above */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-center mb-12"
+            >
+              <h3 className="text-3xl md:text-4xl font-bold text-[#03045E] mb-4 font-(family-name:--font-caudex)">
+                Your deals, on the map
+              </h3>
+              <p className="text-lg md:text-xl text-gray-600 font-(family-name:--font-caudex) leading-relaxed max-w-4xl mx-auto whitespace-nowrap">
+                Our real-time interactive map shows all your favourite foods nearby.
+                <br/>Set your location or let Trivvi follow you.
+                <br/>
+                Deals update as you move,
+                so you never miss a bite.
+              </p>
+            </motion.div>
+
+            {/* Map and Card - Side by Side, Same Size */}
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-16">
+              {/* Map Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                className="w-full max-w-[550px]"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+                  <img
+                    src="/imageAssets/mapMockup.png"
+                    alt="Interactive map showing nearby deals"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Deal Mockup Card */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+                className="w-full max-w-[550px]"
+              >
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden aspect-[4/3] flex flex-col">
+                  {/* Restaurant Image */}
+                  <div className="flex-1 relative overflow-hidden">
+                    <img
+                      src="/imageAssets/pizzaYum.jpg"
+                      alt="Pepperoni Pizza"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* Deal Info */}
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+                        20% OFF
+                      </span>
+                      <span className="bg-red-100 text-black text-xs font-semibold px-2 py-1 rounded-full">
+                        Reg. Price : C$14.99
+                      </span>
+                      <span className="text-gray-400 text-xs">• 350m away</span>
+                    </div>
+                    <h4 className="font-bold text-gray-900 text-lg mb-1 font-(family-name:--font-caudex)">
+                      Mario&apos;s Pizzeria
+                    </h4>
+                    <p className="text-gray-600 text-sm mb-3 font-(family-name:--font-caudex)">
+                      20% off Large Handcrafted Pepperoni Pizza. 
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1">
+                        <span className="text-yellow-500">★</span>
+                        <span className="text-sm font-medium">4.8</span>
+                        <span className="text-gray-400 text-xs">(120)</span>
+                      </div>
+                      <span className="text-xs text-gray-400">Ends in 2h</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 

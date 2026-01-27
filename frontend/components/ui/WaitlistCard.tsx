@@ -18,7 +18,7 @@ interface WaitlistCardProps {
     email: string;
     lat: number | null;
     lng: number | null;
-    radius: number;
+    optInUpdates: boolean;
   }) => void;
 }
 
@@ -27,12 +27,12 @@ export function WaitlistCard({ onSubmit }: WaitlistCardProps) {
   const [location, setLocation] = useState<{
     lat: number | null;
     lng: number | null;
-    radius: number;
-  }>({ lat: null, lng: null, radius: 5000 });
+  }>({ lat: null, lng: null });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [optInUpdates, setOptInUpdates] = useState(false);
 
-  const handleLocationSelect = (lat: number, lng: number, radius: number) => {
-    setLocation({ lat, lng, radius });
+  const handleLocationSelect = (lat: number, lng: number) => {
+    setLocation({ lat, lng });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -43,13 +43,13 @@ export function WaitlistCard({ onSubmit }: WaitlistCardProps) {
         email,
         lat: location.lat,
         lng: location.lng,
-        radius: location.radius,
+        optInUpdates,
       });
       console.log("Waitlist signup:", {
         email,
         lat: location.lat,
         lng: location.lng,
-        radius: location.radius,
+        optInUpdates,
       });
     }
   };
@@ -83,6 +83,18 @@ export function WaitlistCard({ onSubmit }: WaitlistCardProps) {
                     className="w-full bg-white/80 border border-[#ccdbfd]/50 text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 h-12 px-4 rounded-xl backdrop-blur-sm focus:outline-none focus:ring-2"
                   />
 
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={optInUpdates}
+                      onChange={(e) => setOptInUpdates(e.target.checked)}
+                      className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary/20"
+                    />
+                    <span className="text-sm text-gray-600">
+                      Opt in to receive updates about Trivvi&apos;s development
+                    </span>
+                  </label>
+
                   <button
                     type="submit"
                     className="w-full h-12 px-6 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 font-(family-name:--font-caudex)"
@@ -112,12 +124,9 @@ export function WaitlistCard({ onSubmit }: WaitlistCardProps) {
               {/* Right side - Map */}
               <div className="flex-1">
                 <p className="text-sm text-gray-600 mb-2 font-medium font-(family-name:--font-caudex)">
-                  Where should we launch? (click the map)
+                  Where could you see yourself using Trivvi the most?
                 </p>
-                <LocationPicker
-                  onLocationSelect={handleLocationSelect}
-                  radius={location.radius}
-                />
+                <LocationPicker onLocationSelect={handleLocationSelect} />
               </div>
             </div>
           ) : (
