@@ -20,7 +20,7 @@ const IPhoneStep3 = () => {
     <IPhoneFrame>
       {/* Wallpaper */}
       <Image
-        src="/background/phonewallpaper.jpg"
+        src="/phoneMockup/phonewallpaper.jpg"
         alt="Phone wallpaper"
         fill
         className="object-cover"

@@ -6,12 +6,14 @@ interface GradientBackgroundProps {
 }
 
 export function GradientBackground({
+  fromColor = "#fff",
+  toColor = "#b6ccfe",
 }: GradientBackgroundProps) {
   return (
     <div
       className="absolute inset-0 z-0"
       style={{
-      background: "radial-gradient(125% 125% at 50% 90%, #fff 40%, #b6ccfe 100%)",
+        background: `radial-gradient(125% 125% at 50% 90%, ${fromColor} 40%, ${toColor} 100%)`,
       }}
     />
   );

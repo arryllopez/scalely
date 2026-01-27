@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -17,18 +16,10 @@ import { TextEffect } from "@/components/ui/text-effect";
 import IphoneStep1 from "@/components/ui/IphoneStep1";
 import IphoneStep2 from "@/components/ui/IphoneStep2";
 import IphoneStep3 from "@/components/ui/IphoneStep3";
+import { GradientBackground } from "@/components/ui/gradient-backgrounds";
+import WaitlistCard from "@/components/ui/WaitlistCard";
 
 export default function ForDiners() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Connect to your backend/email service
-    console.log("Diner signup:", email);
-    setSubmitted(true);
-  };
-
   const features = [
     {
       name: "Real savings, no catch",
@@ -77,6 +68,9 @@ export default function ForDiners() {
   return (
     <SmoothScroll>
       <main className="min-h-screen bg-white relative overflow-hidden">
+        {/* Gradient Background */}
+        <GradientBackground toColor="#abc4ff" />
+
         {/* City Skyline Background */}
         <div
           className="absolute bottom-0 left-0 right-0 h-70 pointer-events-none z-0 opacity-20 blur-[1px]"
@@ -90,7 +84,7 @@ export default function ForDiners() {
         />
 
         {/* Header */}
-        <header className="p-6 relative z-10">
+        <header className="p-6 relative z-20">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
@@ -101,7 +95,7 @@ export default function ForDiners() {
         </header>
 
         {/* Hero */}
-        <section className="px-6 py-12 text-center">
+        <section className="px-6 py-12 text-center relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="flex flex-col items-center">
               <FadeText
@@ -155,7 +149,7 @@ Diners find great deals nearby.`}
         </section>
 
         {/* Benefits */}
-        <section className="px-6 py-8">
+        <section className="px-6 py-8 relative z-10">
           <div className="max-w-7xl mx-auto">
             <section className="text-center py-10">
               <TextEffect
@@ -178,7 +172,7 @@ Diners find great deals nearby.`}
         </section>
 
         {/* How it works */}
-        <section className="px-6 py-16">
+        <section className="px-6 py-16 relative z-10">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl md:text-4xl font-bold mb-16 text-center font-(family-name:--font-caudex)">
               Trivvi in 3 easy steps
@@ -191,7 +185,7 @@ Diners find great deals nearby.`}
                 </div>
                 <div className="flex-1 flex flex-col justify-center items-center text-center">
                   
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 font-(family-name:--font-caudex)">
                     1
                   </div>
                   <p className="text-2xl font-semibold text-black mb-2 font-(family-name:--font-caudex)">
@@ -210,14 +204,19 @@ Diners find great deals nearby.`}
                 </div>
                 <div className="flex-1 flex flex-col justify-center items-center text-center">
                   
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 font-(family-name:--font-caudex)">
                     2
                   </div>
                   <p className="text-2xl font-semibold text-black 700 mb-2 font-(family-name:--font-caudex)">
                     Pick your favourites
                   </p>
+                  <p className="text-lg text-black-500 font-(family-name:--font-caudex)">
+                    Choose the foods you love and how far you want to go. 
+                  </p>
                   <p className="text-lg text-gray-500 font-(family-name:--font-caudex)">
-                    Choose the foods you love for personalized alerts. <br/>Trivvi won&apos;t notify you on foods you don&apos;t enjoy.
+                   Trivvi only notifies you about the foods you love 
+                   <br/> 
+                   within the distance you choose.
                   </p>
                 </div>
               </div>
@@ -229,11 +228,14 @@ Diners find great deals nearby.`}
                 </div>
                 <div className="flex-1 flex flex-col justify-center items-center text-center">
                   
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 font-(family-name:--font-caudex)">
                     3
                   </div>
                   <p className="text-2xl font-semibold text-gray-700 mb-2 font-(family-name:--font-caudex)">
                     Stay in the loop
+                  </p>
+                  <p className="text-lg text-gray-500 font-(family-name:--font-caudex)">
+                    Personalized real-time alerts, right when they matter.
                   </p>
                 </div>
               </div>
@@ -241,7 +243,7 @@ Diners find great deals nearby.`}
           </div>
         </section>
 
-        <section className="min-h-screen flex items-center justify-center px-6 py-24 bg-white">
+        <section className="min-h-screen flex items-center justify-center px-6 py-24 bg-white relative z-10">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div className="shrink-0 flex justify-start">
               <LottieAnimation
@@ -266,44 +268,14 @@ Diners find great deals nearby.`}
         </section>
 
         {/* Waitlist signup */}
-        <section className="px-6 py-16">
-          <div className="max-w-md mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Be first in line
-            </h2>
-            <p className="text-gray-600 mb-8">
-              We&apos;re launching soon. Join the waitlist and be the first to know when Trivvi arrives in your area.
-            </p>
-
-            {submitted ? (
-              <div className="bg-white rounded-2xl p-8 shadow-sm">
-                <span className="text-5xl mb-4 block">🎉</span>
-                <h3 className="text-xl font-bold mb-2">You&apos;re on the list!</h3>
-                <p className="text-gray-600">We&apos;ll let you know as soon as we launch.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="flex-1 px-5 py-4 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-                <button
-                  type="submit"
-                  className="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
-                >
-                  Join waitlist
-                </button>
-              </form>
-            )}
+        <section className="px-6 py-16 relative z-10">
+          <div className="flex justify-center">
+            <WaitlistCard />
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="px-6 py-8 text-center text-gray-400 text-sm">
+        <footer className="px-6 py-8 text-center text-gray-400 text-sm relative z-10">
           <p></p>
         </footer>
       </main>

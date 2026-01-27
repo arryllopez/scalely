@@ -33,7 +33,7 @@ const IPhoneStep2 = () => {
       <div className="absolute inset-0 flex flex-col pt-16 px-5 z-10">
         {/* Header */}
         <div className="mb-6">
-          <h2 className="text-xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-xl font-bold text-gray-900 leading-tight font-(family-name:--font-caudex)">
             Which foods would you like to receive alerts on?
           </h2>
           <p className="text-gray-500 text-xs mt-2">Select all that apply</p>
