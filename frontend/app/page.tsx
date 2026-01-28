@@ -33,10 +33,10 @@ export default function Home() {
             />
           </div>
 
-          <div className="relative z-10 flex flex-col gap-8 items-center text-center max-w-2xl">
+          <div className="relative z-10 flex flex-col gap-6 md:gap-8 items-center text-center max-w-2xl px-4">
             <AnimatedText
               text="Trivvi"
-              textClassName="text-8xl md:text-10xl font-bold tracking-tight font-(family-name:--font-caudex) text-black"
+              textClassName="text-6xl md:text-8xl lg:text-10xl font-bold tracking-tight font-(family-name:--font-caudex) text-black"
               underlineClassName="text-[#000000]"
               underlineDuration={1.5}
             />
@@ -45,10 +45,10 @@ export default function Home() {
               as="p"
               preset="blur"
               delay={2}
-              className="text-xl md:text-2xl text-black whitespace-nowrap"
+              className="text-lg md:text-2xl text-black text-center"
             >
               {`Trivvi uses real-time alerts to help restaurants fill empty tables.
-            Diners find great deals nearby.`}
+Diners find great deals nearby.`}
             </TextEffect>
 
           </div>
