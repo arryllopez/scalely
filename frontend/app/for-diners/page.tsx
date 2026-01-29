@@ -20,13 +20,58 @@ import WaitlistCard from "@/components/ui/WaitlistCard";
 export default function ForDiners() {
   const features = [
     {
-      name: "Real savings, no catch",
+      name: "Genuine savings",
       description: "Exclusive discounts. Same great food, smaller bill.",
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+      className: "text-sm col-start-1 col-end-2 row-start-3 row-end-4",
+      background: (
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            background: "linear-gradient(to bottom, #abc4ff 0%, #ccdbfd 30%, #ffffff 70%)"
+          }}
+        >
+          <motion.div
+            className="p-3 scale-[0.85] origin-top"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            style={{
+              maskImage: "linear-gradient(to bottom, black 0%, black 75%, transparent 85%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 75%, transparent 85%)"
+            }}
+          >
+            {/* Order Summary Mockup */}
+            <div className="bg-white rounded-xl shadow-lg p-3 text-xs">
+              <div className="text-[10px] text-gray-500 mb-1">Order Summary</div>
+              <div className="border-b border-gray-100 pb-1.5 mb-1.5">
+                <div className="flex justify-between items-center">
+                  <span className="font-medium text-gray-800">Beef Ramen</span>
+                  <span className="text-gray-600">$16.99</span>
+                </div>
+              </div>
+              <div className="space-y-0.5">
+                <div className="flex justify-between text-gray-500">
+                  <span>Subtotal</span>
+                  <span>$16.99</span>
+                </div>
+                <div className="flex justify-between text-green-600 font-medium">
+                  <span>Trivvi Discount (15%)</span>
+                  <span>-$2.55</span>
+                </div>
+              </div>
+              <div className="border-t border-gray-100 mt-1.5 pt-1.5 flex justify-between font-bold text-gray-800">
+                <span>Total</span>
+                <span>$14.44</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      ),
     },
     {
       name: "Get notified, not spammed",
-      description: "We only notify you when something good is happening nearby — no noise, no spam.",
+      description: "Trivvi only notifies you of the food you love.",
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
       background: (
         <div
@@ -165,15 +210,17 @@ Diners find great deals nearby.`}
         <section className="px-6 py-8 relative z-10">
           <div className="max-w-7xl mx-auto">
             <section className="text-center py-10">
-              <TextEffect
-                per="line"
-                as="p"
-                preset="blur"
-                delay={2}
-                className="text-2xl md:text-3xl text-black font-(family-name:--font-caudex)"
-              >
-                {`Trivvi is Designed for Diners`}
-              </TextEffect>
+              <div style={{ fontWeight: 700 }}>
+                <TextEffect
+                  per="line"
+                  as="h2"
+                  preset="blur"
+                  delay={2}
+                  className="text-4xl md:text-4xl text-black font-(family-name:--font-caudex)"
+                >
+                  {`Trivvi is Designed for Diners`}
+                </TextEffect>
+              </div>
             </section>
             <BentoGrid className="lg:grid-rows-3" delay={2.5}>
 
