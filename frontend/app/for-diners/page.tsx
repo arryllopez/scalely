@@ -157,7 +157,7 @@ export default function ForDiners() {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col items-center">
               <FadeText
-                className="text-6xl font-bold text-black font-(family-name:--font-caudex)"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-black font-(family-name:--font-caudex)"
                 direction="right"
                 framerProps={{
                   show: { transition: { delay: 0.4 } },
@@ -165,7 +165,7 @@ export default function ForDiners() {
                 text="Great Food."
               />
               <FadeText
-                className="text-6xl font-bold text-black font-(family-name:--font-caudex)"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-black font-(family-name:--font-caudex)"
                 direction="left"
                 framerProps={{
                   show: { transition: { delay: 0.8 } },
@@ -173,7 +173,7 @@ export default function ForDiners() {
                 text="Better prices."
               />
               <FadeText
-                className="text-6xl font-bold text-black font-(family-name:--font-caudex)"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-black font-(family-name:--font-caudex)"
                 direction="right"
                 framerProps={{
                   show: { transition: { delay: 1.2 } },
@@ -195,7 +195,7 @@ export default function ForDiners() {
                 as="p"
                 preset="blur"
                 delay={1.6}
-                className="text-xl md:text-2xl text-black text-center mx-auto whitespace-nowrap"
+                className="text-base md:text-xl lg:text-2xl text-black text-center mx-auto px-2"
               >
                 {`Trivvi uses real-time alerts to help restaurants fill empty tables.
 Diners find great deals nearby.`}
